@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "case_id": "65431539-689f-4a5b-86a8-ce1cafc108f7",
+  "name": "Test - Ridge Road Basement",
+  "created_utc": "2026-10-30T19:46:36.652+00:00",
+  "closed_utc": "2026-10-30T19:46:36.667+00:00",
+  "status": "closed",
+  "artifacts": [
+    {
+      "artifact_id": "cc43f561-2cca-4865-98aa-19d4fe364cfe",
+      "type": "photo",
+      "original_name": "IMG_ghost_door.jpg",
+      "stored_as": "photos/20261030_194636_photo_a199bfa8.jpg",
+      "sha256": "a199bfa8c7b16d8b07ab9436caf79b5edcbd85303ae3fb16e19a31823ae2260b",
+      "size_bytes": 3000000,
+      "ingested_utc": "2026-10-30T19:46:36.662+00:00",
+      "source": "tara-ui"
+    },
+    {
+      "artifact_id": "810967ca-833c-498b-a9d1-d3d41f462289",
+      "type": "video",
+      "original_name": "clip_basement.mp4",
+      "stored_as": "video/20261030_194636_video_8a04d647.mp4",
+      "sha256": "8a04d647faf7ca2a4ef2933c95c1ad77112ca61adf4225ffbea4ce2eb644944f",
+      "size_bytes": 50000,
+      "ingested_utc": "2026-10-30T19:46:36.664+00:00",
+      "source": "tara-ui"
+    },
+    {
+      "artifact_id": "164cc711-9b12-43e6-afa0-08ec47660b47",
+      "type": "sensor-log",
+      "original_name": "emf_session1.csv",
+      "stored_as": "sensor-logs/20261030_194636_sensor-log_cc9ffcca.csv",
+      "sha256": "cc9ffcca88676d3b0049d5d3b4ee66c1b29d2c1ce48e6ecf1960e71d9c2cc947",
+      "size_bytes": 56,
+      "ingested_utc": "2026-10-30T19:46:36.665+00:00",
+      "source": "tara-ui"
+    },
+    {
+      "artifact_id": "1dbc01c1-4f1f-4e44-9e6a-2c33b9d5986a",
+      "type": "evp",
+      "original_name": "evp_knock_response.wav",
+      "stored_as": "evp/20261030_194636_evp_eb78705e.wav",
+      "sha256": "eb78705e55825256dce5a9743f455d6e5d3473cadc9b5f8b52582c7880abe221",
+      "size_bytes": 200000,
+      "ingested_utc": "2026-10-30T19:46:36.666+00:00",
+      "source": "tara-ui"
+    }
+  ]
+}
