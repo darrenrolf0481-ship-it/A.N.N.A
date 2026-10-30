@@ -87,6 +87,27 @@
           },
           "source": {
             "type": "string"
+          },
+          "note": {
+            "type": "string",
+            "description": "Short label carried from the finding or note that produced this artifact."
+          },
+          "attestation_of": {
+            "type": "string",
+            "description": "Set on second-pass attestations: artifact_id of the finding under review."
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "agrees",
+              "disagrees",
+              "uncertain"
+            ],
+            "description": "Set on second-pass attestations only."
+          },
+          "analyst": {
+            "type": "string",
+            "description": "Set on second-pass attestations only: the reviewer named in the attestation."
           }
         }
       }
