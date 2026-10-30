@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Create a synthetic case so the console has something to review.
 
-    python3 -m tara.seed_demo
+    python3 -m anna.seed_demo
 
 Everything it writes is generated: a WAV with two knocks, an EMF/IMU CSV with
 a spike, a noise PNG, a short video if ffmpeg is available, plus a note and a
@@ -141,11 +141,11 @@ def main() -> None:
             "t_end": 2.45,
             "region": "audio",
             "note": "Sharp transient, no matching visual. Marked for a second pass.",
-            "analyst": "tara-ui",
+            "analyst": "anna-ui",
         },
     )
     print(f"  finding     {finding['stored_as']}")
-    print(f"\nopen it:  python3 -m tara.server   ->  http://127.0.0.1:8787")
+    print(f"\nopen it:  python3 -m anna.server   ->  http://127.0.0.1:8787")
 
 
 if __name__ == "__main__":

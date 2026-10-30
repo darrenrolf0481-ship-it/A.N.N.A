@@ -37,7 +37,7 @@ export function VideoStation({ artifact, caseId, onSaveFinding }: Props) {
   const [outT, setOutT] = useState<number | null>(null);
   const [region, setRegion] = useState(REGIONS[0]);
   const [note, setNote] = useState("");
-  const [analyst, setAnalyst] = useState("tara-ui");
+  const [analyst, setAnalyst] = useState("anna-ui");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);

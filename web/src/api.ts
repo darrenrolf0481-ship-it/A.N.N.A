@@ -117,7 +117,7 @@ export const api = {
   getCase: (id: string) => request<CaseManifest>(`/api/cases/${id}`),
   createCase: (name: string) => request<CaseManifest>("/api/cases", json({ name })),
   upload: (id: string, file: File, kind?: ArtifactType) => {
-    const params = new URLSearchParams({ name: file.name, source: "tara-ui" });
+    const params = new URLSearchParams({ name: file.name, source: "anna-ui" });
     if (kind) params.set("kind", kind);
     return request<Artifact>(`/api/cases/${id}/artifacts?${params.toString()}`, {
       method: "POST",

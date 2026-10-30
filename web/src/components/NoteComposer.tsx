@@ -9,7 +9,7 @@ interface Props {
 export function NoteComposer({ onClose, onSubmit, busy }: Props) {
   const [title, setTitle] = useState("Field note");
   const [text, setText] = useState("");
-  const [analyst, setAnalyst] = useState("tara-ui");
+  const [analyst, setAnalyst] = useState("anna-ui");
 
   return (
     <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>

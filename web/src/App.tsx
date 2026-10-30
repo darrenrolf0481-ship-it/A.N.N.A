@@ -242,7 +242,7 @@ export default function App() {
         <main className="main">
           {loadError && (
             <div className="banner">
-              Could not reach the case API: {loadError}. Start it with <span className="mono">python3 -m tara.server</span>.
+              Could not reach the case API: {loadError}. Start it with <span className="mono">python3 -m anna.server</span>.
             </div>
           )}
 

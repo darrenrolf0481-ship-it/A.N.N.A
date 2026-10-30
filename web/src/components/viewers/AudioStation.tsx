@@ -28,7 +28,7 @@ export function AudioStation({ artifact, caseId, onSaveFinding }: Props) {
   const [inT, setInT] = useState<number | null>(null);
   const [outT, setOutT] = useState<number | null>(null);
   const [note, setNote] = useState("");
-  const [analyst, setAnalyst] = useState("tara-ui");
+  const [analyst, setAnalyst] = useState("anna-ui");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);

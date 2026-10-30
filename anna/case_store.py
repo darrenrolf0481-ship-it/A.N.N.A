@@ -1,4 +1,4 @@
-"""Tara case store — the on-disk evidence format, single implementation.
+"""A.N.N.A. case store — the on-disk evidence format, single implementation.
 
 One directory per case, a manifest.json index, SHA-256 on ingest, deterministic
 names (`YYYYMMDD_HHMMSS_<type>_<hash8>`), atomic manifest writes. The HTTP API,
@@ -192,7 +192,7 @@ def add_artifact(
     src: Path,
     original_name: str | None = None,
     kind: str | None = None,
-    source: str = "tara-ui",
+    source: str = "anna-ui",
     note: str | None = None,
     extra: dict | None = None,
 ) -> dict:
@@ -244,7 +244,7 @@ def add_blob(
     data: bytes,
     original_name: str,
     kind: str | None = None,
-    source: str = "tara-ui",
+    source: str = "anna-ui",
     note: str | None = None,
     extra: dict | None = None,
 ) -> dict:
@@ -285,7 +285,7 @@ def add_finding(base: Path, case_id: str, payload: dict) -> dict:
         "finding_id": str(uuid.uuid4()),
         "case_id": case_id,
         "created_utc": utcnow(),
-        "analyst": (payload.get("analyst") or "tara-ui").strip() or "tara-ui",
+        "analyst": (payload.get("analyst") or "anna-ui").strip() or "anna-ui",
         "detection": "human-marked",
         "source": {
             "artifact_id": source["artifact_id"],
@@ -387,7 +387,7 @@ def add_review(base: Path, case_id: str, finding_artifact_id: str, payload: dict
     )
 
 
-def add_note(base: Path, case_id: str, title: str, text: str, analyst: str = "tara-ui") -> dict:
+def add_note(base: Path, case_id: str, title: str, text: str, analyst: str = "anna-ui") -> dict:
     d = case_dir(base, case_id)
     manifest = load_manifest(d)
     _require_open(manifest)
@@ -398,7 +398,7 @@ def add_note(base: Path, case_id: str, title: str, text: str, analyst: str = "ta
     body = (
         f"# {title}\n\n"
         f"{text}\n\n"
-        f"-- {analyst.strip() or 'tara-ui'} @ {utcnow()}\n"
+        f"-- {analyst.strip() or 'anna-ui'} @ {utcnow()}\n"
     )
     safe = "".join(c if c.isalnum() or c in "-_ " else "_" for c in title)[:40].strip().replace(" ", "-")
     return add_blob(
@@ -407,7 +407,7 @@ def add_note(base: Path, case_id: str, title: str, text: str, analyst: str = "ta
         body.encode("utf-8"),
         original_name=f"note_{safe or 'note'}.txt",
         kind="note",
-        source="tara-ui",
+        source="anna-ui",
         note=title,
     )
 

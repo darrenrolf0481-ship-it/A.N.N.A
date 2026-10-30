@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Tara case console — JSON API + single-page UI, standard library only.
+"""A.N.N.A. case console — JSON API + single-page UI, standard library only.
 
-    python3 -m tara.server                 # http://127.0.0.1:8787
-    python3 -m tara.server --host 0.0.0.0  # reachable from the LAN / phone
+    python3 -m anna.server                 # http://127.0.0.1:8787
+    python3 -m anna.server --host 0.0.0.0  # reachable from the LAN / phone
 
 The store is plain directories under --cases (default ./cases). Nothing here
 interprets evidence: it hashes, stores, lists and serves. Findings only get
@@ -32,7 +32,7 @@ CASE_ID = r"([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-f
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "TaraCaseConsole/1.0"
+    server_version = "ANNAConsole/1.0"
     protocol_version = "HTTP/1.1"
 
     # ---------------------------------------------------------------- helpers
@@ -162,7 +162,7 @@ class Handler(BaseHTTPRequestHandler):
                 if not name:
                     return self._error(400, "name query parameter is required")
                 kind = (query.get("kind") or [None])[0]
-                source = (query.get("source") or ["tara-ui"])[0]
+                source = (query.get("source") or ["anna-ui"])[0]
                 tmp = self._receive_to_case(case_id)
                 try:
                     entry = store.add_artifact(BASE, case_id, tmp, original_name=name, kind=kind, source=source)
@@ -181,7 +181,7 @@ class Handler(BaseHTTPRequestHandler):
                     m.group(1),
                     body.get("title", ""),
                     body.get("text", ""),
-                    analyst=body.get("analyst", "tara-ui"),
+                    analyst=body.get("analyst", "anna-ui"),
                 )
                 return self._json(entry, 201)
 
@@ -270,7 +270,7 @@ class Handler(BaseHTTPRequestHandler):
             target = dist / "index.html"
         if not target.is_file():
             msg = (
-                "Tara UI is not built yet.\n\n"
+                "A.N.N.A. UI is not built yet.\n\n"
                 "  cd web && npm install && npm run build\n\n"
                 "Then reload, or run the dev server with: cd web && npm run dev\n"
             )
@@ -284,7 +284,7 @@ class Handler(BaseHTTPRequestHandler):
 
 def main() -> None:
     global BASE
-    ap = argparse.ArgumentParser(description="Tara case console")
+    ap = argparse.ArgumentParser(description="A.N.N.A. case console")
     ap.add_argument("--host", default="127.0.0.1", help="bind address (0.0.0.0 to expose on the network)")
     ap.add_argument("--port", type=int, default=8787)
     ap.add_argument("--cases", default=str(ROOT / "cases"), help="case store directory")
@@ -295,7 +295,7 @@ def main() -> None:
 
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)
     httpd.daemon_threads = True
-    print(f"Tara case console  http://{args.host}:{args.port}")
+    print(f"A.N.N.A. case console  http://{args.host}:{args.port}")
     print(f"case store         {BASE}")
     if not (WEB_DIST / "index.html").is_file():
         print("ui                 not built (cd web && npm install && npm run build)")

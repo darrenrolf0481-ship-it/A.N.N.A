@@ -1,4 +1,4 @@
-# Tara — case console
+# A.N.N.A. — case console
 
 Evidence workstation for the field-unit build. A case is a directory with a
 manifest; everything that comes off the phone, camera or recorder goes into it,
@@ -15,18 +15,18 @@ same.
 cd web && npm install && npm run build && cd ..
 
 # 2. start the console
-python3 -m tara.server              # http://127.0.0.1:8787
-python3 -m tara.server --host 0.0.0.0   # reachable from the phone / another machine
+python3 -m anna.server              # http://127.0.0.1:8787
+python3 -m anna.server --host 0.0.0.0   # reachable from the phone / another machine
 ```
 
 For UI work, run the API and Vite side by side — Vite proxies `/api` to 8787:
 
 ```bash
-python3 -m tara.server &
+python3 -m anna.server &
 cd web && npm run dev               # http://127.0.0.1:5173
 ```
 
-Want something to click through immediately? `python3 -m tara.seed_demo` builds a
+Want something to click through immediately? `python3 -m anna.seed_demo` builds a
 synthetic case (WAV with two knocks, EMF/IMU CSV, PNG, short video if ffmpeg is
 present, one finding artifact).
 
@@ -59,10 +59,17 @@ present, one finding artifact).
 The UI never labels evidence on its own: no transcription, no classification, no
 confidence score it invented. Marks are `detection: human-marked`.
 
+## Wallpaper
+
+Darren's artwork lives at `web/public/background.jpg` and is drawn as a fixed,
+vignetted layer behind the console. The **atmosphere** control in the top bar
+sets dim and blur (saved per browser): the default is tuned so the ledger stays
+readable, 0% dim is for looking at the picture.
+
 ## Layout
 
 ```
-tara/               case store + HTTP API (stdlib only)
+anna/               case store + HTTP API (stdlib only)
   case_store.py     the format: create, ingest, findings, verify, close
   server.py         /api/* + serves web/dist
   seed_demo.py      synthetic case for testing the viewers

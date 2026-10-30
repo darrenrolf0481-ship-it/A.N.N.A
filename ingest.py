@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""CLI for the Tara case store — the same code path the UI server uses.
+"""CLI for the A.N.N.A. case store — the same code path the UI server uses.
 
   python3 ingest.py new "Case Name" [--base cases]
-  python3 ingest.py ingest <case_dir> <file> [--kind evp] [--source tara-ui]
+  python3 ingest.py ingest <case_dir> <file> [--kind evp] [--source anna-ui]
   python3 ingest.py verify <case_dir>
   python3 ingest.py close <case_dir>
 """
@@ -13,7 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-from tara import case_store
+from anna import case_store
 
 SCHEMA_VERSION = case_store.SCHEMA_VERSION
 
@@ -49,7 +49,7 @@ def cmd_close(args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Tara case store CLI")
+    parser = argparse.ArgumentParser(description="A.N.N.A. case store CLI")
     sub = parser.add_subparsers(required=True)
 
     new = sub.add_parser("new", help="create a case")
@@ -61,7 +61,7 @@ def main() -> None:
     ingest.add_argument("case_dir")
     ingest.add_argument("file")
     ingest.add_argument("--kind", choices=sorted(case_store.KIND_DIRS))
-    ingest.add_argument("--source", default="tara-ui")
+    ingest.add_argument("--source", default="anna-ui")
     ingest.set_defaults(fn=cmd_ingest)
 
     verify = sub.add_parser("verify", help="re-hash a case against its manifest")
